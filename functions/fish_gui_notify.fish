@@ -16,5 +16,7 @@ function fish_gui_notify -d "Dislay a GUI notification"
                                 set app $value
                 end
         end
-	terminal-notifier -title $title -message $message -group $group -activate $app > /dev/null
+        if test -n (which terminal-notifier)
+	        terminal-notifier -title $title -message $message -group $group -activate $app > /dev/null
+        end
 end
